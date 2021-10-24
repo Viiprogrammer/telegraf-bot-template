@@ -1,0 +1,32 @@
+{
+  "name": "botname",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon ./src/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Viiprogrammer/TelegrafBotTemlate.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Viiprogrammer/TelegrafBotTemlate/issues"
+  },
+  "homepage": "https://github.com/Viiprogrammer/TelegrafBotTemlate#readme",
+  "dependencies": {
+    "@grammyjs/i18n": "^0.3.0",
+    "@sentry/node": "^6.13.3",
+    "@sentry/tracing": "^6.13.3",
+    "dotenv": "^10.0.0",
+    "telegraf": "^4.4.2",
+    "telegraf-inline-menu": "^6.3.0",
+    "telegram-escape": "^1.1.0",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.14"
+  }
+}
