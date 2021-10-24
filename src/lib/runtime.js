@@ -1,20 +1,20 @@
-const { Telegraf } = require("telegraf");
-const { isDev, environment } = require('../config/index.js');
+const { Telegraf } = require('telegraf')
+const { isDev, environment } = require('../config/index.js')
 
-async function createBot(token, telegrafConfig) {
-    const bot = new Telegraf(token, telegrafConfig);
+async function createBot (token, telegrafConfig) {
+  const bot = new Telegraf(token, telegrafConfig)
 
-    if (isDev) {
-        bot.use(Telegraf.log());
-    }
+  if (isDev) {
+    bot.use(Telegraf.log())
+  }
 
-    if (environment.SENTRY_URL) {
-        bot.catch((error) => {
-            Sentry.captureException(error);
-        });
-    }
+  if (environment.SENTRY_URL) {
+    bot.catch((error) => {
+      Sentry.captureException(error)
+    })
+  }
 
-    return bot;
+  return bot
 }
 
-module.exports = {createBot};
+module.exports = { createBot }

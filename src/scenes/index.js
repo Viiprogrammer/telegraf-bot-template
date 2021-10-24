@@ -1,10 +1,10 @@
-const path = require('path');
-const fs = require('fs');
-const dir = fs.readdirSync(__dirname + path.sep)
+const path = require('path')
+const fs = require('fs')
+const dir = fs.readdirSync(path.join(__dirname, path.sep))
 
-dir.forEach(function(filename){
-    if(path.extname(filename) === '.js' && filename !== 'index.js'){
-        var exportAsName = path.basename(filename);
-        module.exports[exportAsName] = require( path.join( __dirname, filename) );
-    }
-});
+dir.forEach(function (filename) {
+  if (path.extname(filename) === '.js' && filename !== 'index.js') {
+    const exportAsName = path.basename(filename)
+    module.exports[exportAsName] = require(path.join(__dirname, filename))
+  }
+})
