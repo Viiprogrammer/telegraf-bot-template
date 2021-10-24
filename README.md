@@ -1,4 +1,3 @@
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/810311f9a3f3440d914e61d252723064)](https://www.codacy.com/gh/Viiprogrammer/TelegrafBotTemplate/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Viiprogrammer/TelegrafBotTemplate&amp;utm_campaign=Badge_Grade)
 
 # TelegrafBotTemplate
 
