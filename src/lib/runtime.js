@@ -1,3 +1,4 @@
+const Sentry = require('@sentry/node')
 const { Telegraf } = require('telegraf')
 const { isDev, environment } = require('../config/index.js')
 
