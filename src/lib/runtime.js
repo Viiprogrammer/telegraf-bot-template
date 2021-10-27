@@ -9,6 +9,12 @@ async function createBot (token, telegrafConfig) {
     bot.use(Telegraf.log())
   }
 
+  bot.use(
+    require('../handlers/middlewares'),
+    require('../handlers/commands'),
+    require('../handlers/unmatched')
+  )
+
   if (environment.SENTRY_URL) {
     bot.catch((error) => {
       Sentry.captureException(error)
