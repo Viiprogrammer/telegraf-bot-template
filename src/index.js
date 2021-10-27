@@ -13,7 +13,7 @@ async function main () {
     username: botConfig.username
   })
 
-  bot.launch()
+  bot.launch({ dropPendingUpdates: environment.BOT_DROP_PENDING_UPDATES })
     .then(async () => {
       logger.info('Start polling...')
       /* eslint-disable camelcase */
