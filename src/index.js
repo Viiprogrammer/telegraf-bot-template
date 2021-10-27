@@ -39,7 +39,7 @@ async function main () {
       /* eslint-enable */
     }).catch((error) => {
       Sentry.captureException(error)
-      logger.error(error)
+      logger.error(error.stack)
     })
 }
 
@@ -57,7 +57,7 @@ process.on('uncaughtException', (error) => {
       }
     })
   }
-  logger.error(error)
+  logger.error(error.stack)
   process.exit(1)
 })
 
@@ -69,6 +69,6 @@ process.on('unhandledRejection', (error) => {
       }
     })
   }
-  logger.error(error)
+  logger.error(error.stack)
   process.exit(1)
 })
