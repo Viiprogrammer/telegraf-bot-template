@@ -6,35 +6,44 @@
   "scripts": {
     "dev": "nodemon ./src/",
     "start": "node ./src/",
-    "test": "eslint ./src/"
+    "lint": "eslint ./src/"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Viiprogrammer/TelegrafBotTemlate.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": {
+    "email": "anicoder@animehaze.online",
+    "name": "Maxim Tsialehin"
+  },
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Viiprogrammer/TelegrafBotTemlate/issues"
   },
   "homepage": "https://github.com/Viiprogrammer/TelegrafBotTemlate#readme",
   "dependencies": {
-    "@grammyjs/i18n": "^0.3.0",
-    "@sentry/node": "^6.13.3",
-    "@sentry/tracing": "^6.13.3",
-    "dotenv": "^10.0.0",
-    "telegraf": "^4.4.2",
-    "telegraf-inline-menu": "^6.3.0",
-    "telegram-escape": "^1.1.0",
-    "winston": "^3.3.3",
-    "require-directory": "^2.1.1"
+    "@sentry/node": "^6.19.2",
+    "@sentry/tracing": "^6.19.2",
+    "async-mutex": "^0.3.2",
+    "dotenv": "^16.0.0",
+    "mongodb": "^4.3.1",
+    "mongoose": "^6.2.1",
+    "telegraf": "^3.39.0",
+    "winston": "^3.6.0",
+    "winston-daily-rotate-file": "^4.6.0",
+    "bull": "^4.8.1"
   },
   "devDependencies": {
     "eslint": "^7.32.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-jsdoc": "^37.9.1",
+    "eslint-plugin-no-loops": "^0.3.0",
+    "eslint-plugin-no-secrets": "^0.8.9",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.1",
+    "eslint-plugin-security": "^1.4.0",
+    "jsdoc": "^3.6.10",
     "nodemon": "^2.0.14"
   }
 }

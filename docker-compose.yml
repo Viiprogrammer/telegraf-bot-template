@@ -1,0 +1,19 @@
+version: '3.9'
+services:
+  bot:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    working_dir: /usr/src/app
+    command: npm start
+    container_name: 'telegraf-bot'
+    restart: on-failure
+    env_file:
+      - .env
+    networks:
+      - main_net
+    volumes:
+      - ./logs:/usr/src/app/logs:rw
+networks:
+  main_net:
+    driver: 'bridge'

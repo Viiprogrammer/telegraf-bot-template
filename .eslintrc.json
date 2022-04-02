@@ -8,9 +8,41 @@
     "extends": [
         "standard"
     ],
+    "plugins": [
+        "jsdoc",
+        "promise",
+        "no-loops",
+        "security",
+        "no-secrets"
+    ],
     "parserOptions": {
         "ecmaVersion": 2021
     },
     "rules": {
+        "no-console": "error",
+        "no-eval": "error",
+        "no-extend-native": "error",
+        "eol-last": "error",
+        "promise/always-return": "error",
+        "promise/no-return-wrap": "error",
+        "promise/param-names": "error",
+        "promise/catch-or-return": "error",
+        "promise/no-nesting": "warn",
+        "promise/no-promise-in-callback": "warn",
+        "promise/no-callback-in-promise": "warn",
+        "promise/avoid-new": "warn",
+        "promise/no-new-statics": "error",
+        "promise/no-return-in-finally": "warn",
+        "promise/valid-params": "warn",
+        "no-loops/no-loops": 2,
+        "security/detect-buffer-noassert": "warn",
+        "security/detect-child-process": "warn",
+        "security/detect-eval-with-expression": "warn",
+        "security/detect-possible-timing-attacks": "warn",
+        "security/detect-pseudoRandomBytes": "warn",
+        "no-secrets/no-secrets": "error",
+        "no-await-in-loop": "warn",
+        "constructor-super": "error",
+        "no-loss-of-precision": "error"
     }
 }
