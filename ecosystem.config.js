@@ -1,7 +1,7 @@
 module.exports = {
   apps: [{
     name: 'BotName',
-    script: './src/models.js'
+    script: './src/index.js'
   }],
   watch_delay: 1000,
   restart_delay: 4000,
