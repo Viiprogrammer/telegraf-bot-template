@@ -1,0 +1,4 @@
+{
+  "name": "botname",
+  "preset": "@shelf/jest-mongodb"
+}

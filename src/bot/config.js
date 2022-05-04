@@ -22,10 +22,12 @@ const botInfo = {
 
 const isDev = NODE_ENV === 'development'
 const isProd = NODE_ENV !== 'development'
+const isTest = NODE_ENV === 'test'
 
 module.exports = {
   isDev,
   isProd,
+  isTest,
   botInfo,
   ...environment
 }
