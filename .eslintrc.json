@@ -3,7 +3,8 @@
     "env": {
         "node": true,
         "commonjs": true,
-        "es2021": true
+        "es2021": true,
+        "jest/globals": true
     },
     "extends": [
         "standard"
@@ -13,7 +14,8 @@
         "promise",
         "no-loops",
         "security",
-        "no-secrets"
+        "no-secrets",
+        "jest"
     ],
     "parserOptions": {
         "ecmaVersion": 2021
