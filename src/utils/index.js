@@ -25,12 +25,6 @@ const getRandomIntInclusive = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
-const replaceAll =
-  String.prototype.replaceAll ??
-  function (searchValue, replaceValue) {
-    return this.split(searchValue).join(replaceValue)
-  }
-
 const noop = Function.prototype
 
 module.exports = {
@@ -39,7 +33,6 @@ module.exports = {
   isCommand,
   isForwarded,
   isPrivateChat,
-  replaceAll,
   arrayRandom,
   noop
 }
