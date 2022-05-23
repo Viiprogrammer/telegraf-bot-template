@@ -2,7 +2,7 @@
 
 # Installation
 
-We advise you to install all devdependencies locally (linters, etc):
+We advise you to install all dev dependencies locally (linters, etc):
 
 `npm install`
 
