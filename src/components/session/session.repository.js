@@ -5,7 +5,7 @@ module.exports = (Database) => {
     }
 
     findOne (filter, options) {
-      return this.model.findOne(filter, options)
+      return this.model.findOne(filter, undefined, options)
     }
 
     updateOne (filter, update, options) {

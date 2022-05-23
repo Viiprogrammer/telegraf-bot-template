@@ -1,4 +1,8 @@
-const { replaceAll } = require('./')
+const replaceAll =
+  String.prototype.replaceAll ??
+  function (searchValue, replaceValue) {
+    return this.split(searchValue).join(replaceValue)
+  }
 
 const MarkdownV2EscapeList = [
   '_',
