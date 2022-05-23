@@ -7,7 +7,7 @@ module.exports = (ctx, next) => {
   if (ctx.updateType === 'message' && ctx.updateSubTypes.includes('text')) {
     const text = ctx.message.text
     if (ctx.message.entities?.[0].type === 'bot_command') {
-      const match = text.match(/^\/([^\s]+)\s?(.+)?/)
+      const match = text.match(/^\/(\S+)\s?(.+)?/)
       let args = []
       let command
       if (match !== null) {
