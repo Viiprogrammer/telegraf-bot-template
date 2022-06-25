@@ -28,6 +28,7 @@ const getRandomIntInclusive = (min, max) => {
 const noop = Function.prototype
 
 module.exports = {
+  getRandomIntInclusive,
   usernameNormalize,
   usernameEquals,
   isCommand,
