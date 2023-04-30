@@ -67,8 +67,8 @@ class Database {
   }
 }
 
-module.exports = (mongoUri, LoggerService) => {
-  const db = new Database(LoggerService.main)
+module.exports = (mongoUri, loggerService) => {
+  const db = new Database(loggerService.main)
   db.connect({ url: mongoUri })
   return db
 }

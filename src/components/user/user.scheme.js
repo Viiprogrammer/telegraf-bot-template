@@ -1,7 +1,7 @@
 const { Schema } = require('mongoose')
 const { isProd } = require('../../bot/config')
 
-const User = new Schema({
+const user = new Schema({
   userId: {
     type: String,
     required: true,
@@ -25,9 +25,9 @@ const User = new Schema({
   toObject: { virtuals: true }
 })
 
-User.virtual('fullName').get(function () {
+user.virtual('fullName').get(function () {
   const { first, last } = this.name
   return [first, last].filter(_ => _).join(' ')
 })
 
-module.exports = User
+module.exports = user

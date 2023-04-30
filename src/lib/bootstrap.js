@@ -7,46 +7,46 @@ const {
 
 const IoC = require('./DI')()
 
-const LoggerService = require('../components/logger/logger.service')
-const SentryService = require('../components/sentry/sentry.service')
+const loggerService = require('../components/logger/logger.service')
+const sentryService = require('../components/sentry/sentry.service')
 
-const SessionService = require('../components/session/session.service')
+const sessionService = require('../components/session/session.service')
 
-const UserService = require('../components/user/user.service')
+const userService = require('../components/user/user.service')
 
-const Database = require('./database')
+const database = require('./database')
 
 IoC.register('config', config)
 
 IoC.register('loggerLevelMain', LOGGER_LEVEL_MAIN ?? 'info')
-IoC.factory('LoggerService', LoggerService)
+IoC.factory('loggerService', loggerService)
 
 IoC.register('sentryUrl', SENTRY_URL)
-IoC.factory('SentryService', SentryService)
+IoC.factory('sentryService', sentryService)
 
 IoC.register('mongoUri', MONGO_URI)
-IoC.factory('Database', Database)
+IoC.factory('database', database)
 
-IoC.factory('UserService', UserService)
+IoC.factory('userService', userService)
 
-IoC.factory('SessionService', SessionService)
+IoC.factory('sessionService', sessionService)
 
 IoC.factory('bot', require('../bot'))
 
 IoC.get('bot')
 
-const Sentry = IoC.get('SentryService')
-const logger = IoC.get('LoggerService')
+const sentry = IoC.get('sentryService')
+const logger = IoC.get('loggerService')
 
 async function stopApplication (code = 0) {
   logger.main.info('Stopping application...')
   const bot = await IoC.get('bot')
 
-  const Database = IoC.get('Database')
+  const database = IoC.get('database')
   await Promise.allSettled([
-    Sentry.close(2000).then(() => logger.main.info('Sentry stopped...')),
+    sentry.close(2000).then(() => logger.main.info('Sentry stopped...')),
     bot.stop().then(() => logger.main.info('Bot stopped...')),
-    Database.close()
+    database.close()
   ])
   logger.main.info('Application stopped')
   process.exit(code)
@@ -54,7 +54,7 @@ async function stopApplication (code = 0) {
 
 async function processError (error) {
   logger.main.error(error.stack)
-  Sentry.captureException(error, {
+  sentry.captureException(error, {
     tags: {
       type: 'process'
     }

@@ -8,19 +8,19 @@ const session = (sessionName = 'session') => {
    * @returns {Promise}
    */
   return async (ctx, next) => {
-    const SessionService = ctx.service.Session
-    const key = SessionService.getSessionKey(ctx)
+    const sessionService = ctx.service.Session
+    const key = sessionService.getSessionKey(ctx)
     if (!sessionLocks.has(key)) sessionLocks.set(key, new Mutex())
 
     return sessionLocks.get(key)
       .runExclusive(async () => {
-        const sessionData = await SessionService.getSession(key)
+        const sessionData = await sessionService.getSession(key)
         ctx[sessionName] = key == null ? undefined : sessionData
 
         await next()
 
         if (ctx[sessionName] != null) {
-          await SessionService.saveSession(key, ctx[sessionName])
+          await sessionService.saveSession(key, ctx[sessionName])
         }
         sessionLocks.delete(key)
       })

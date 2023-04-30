@@ -1,7 +1,4 @@
-// eslint-disable-next-line no-unused-vars
-const TelegrafContext = require('telegraf/context')
-
-module.exports = (SessionModel) => {
+module.exports = (database) => {
   class SessionService {
     constructor (model) {
       this.model = model
@@ -38,5 +35,5 @@ module.exports = (SessionModel) => {
     }
   }
 
-  return new SessionService(SessionModel)
+  return new SessionService(database.models.session)
 }

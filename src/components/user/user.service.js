@@ -1,6 +1,6 @@
 const { User: { AuthorizationError } } = require('../../errors')
 
-module.exports = (UserModel) => {
+module.exports = (database) => {
   class UserService {
     constructor (model) {
       this.model = model
@@ -35,5 +35,6 @@ module.exports = (UserModel) => {
       })
     }
   }
-  return new UserService(UserModel)
+
+  return new UserService(database.model.user)
 }

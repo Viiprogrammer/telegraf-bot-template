@@ -1,7 +1,7 @@
 const { Schema } = require('mongoose')
 const { isProd } = require('../../bot/config')
 
-const Session = new Schema({
+const session = new Schema({
   key: {
     type: String,
     required: true,
@@ -16,4 +16,4 @@ const Session = new Schema({
   autoCreate: true
 })
 
-module.exports = Session
+module.exports = session

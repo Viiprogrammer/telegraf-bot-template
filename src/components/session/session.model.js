@@ -1,4 +1,4 @@
 const { model } = require('mongoose')
-const SessionScheme = require('./session.scheme')
+const sessionScheme = require('./session.scheme')
 
-module.exports = model('session', SessionScheme)
+module.exports = model('session', sessionScheme)
