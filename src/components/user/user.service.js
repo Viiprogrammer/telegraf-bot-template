@@ -17,7 +17,7 @@ module.exports = (UserModel) => {
       const { id, username, first_name, last_name } = user
 
       // eslint-disable-next-line camelcase
-      if (!id || (!username && !first_name)) {
+      if (!first_name) {
         throw new AuthorizationError(`Missing fields for user ${id}`, id)
       }
 
