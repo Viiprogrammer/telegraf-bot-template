@@ -14,7 +14,7 @@ const sessionService = require('../components/session/session.service')
 
 const userService = require('../components/user/user.service')
 
-const database = require('./database')
+const database = require('../components/database/database.service')
 
 const bot = require('../bot')
 

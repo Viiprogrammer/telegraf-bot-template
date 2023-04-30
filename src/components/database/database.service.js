@@ -1,9 +1,7 @@
 const mongoose = require('mongoose')
-const models = require('./models')
-// eslint-disable-next-line no-unused-vars
-const { MongoClient } = require('mongodb')
+const models = require('../../lib/models')
 
-class Database {
+class DatabaseService {
   /**
    * Database class constructor
    * @constructor
@@ -68,7 +66,7 @@ class Database {
 }
 
 module.exports = (mongoUri, loggerService) => {
-  const db = new Database(loggerService.main)
+  const db = new DatabaseService(loggerService.main)
   db.connect({ url: mongoUri })
   return db
 }
