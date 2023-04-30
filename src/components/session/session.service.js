@@ -1,4 +1,4 @@
-module.exports = (database) => {
+module.exports = (databaseService) => {
   class SessionService {
     constructor (model) {
       this.model = model
@@ -35,5 +35,5 @@ module.exports = (database) => {
     }
   }
 
-  return new SessionService(database.model.session)
+  return new SessionService(databaseService.model.session)
 }

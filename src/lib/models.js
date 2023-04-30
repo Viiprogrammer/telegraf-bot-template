@@ -1,9 +1,9 @@
-const user = require('../components/user/user.model')
-const session = require('../components/session/session.model')
+const { userModel } = require('../components/user')
+const { sessionModel } = require('../components/session')
 
 const models = {
-  user,
-  session
+  user: userModel,
+  session: sessionModel
 }
 
 module.exports = models

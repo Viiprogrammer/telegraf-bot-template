@@ -7,14 +7,13 @@ const {
 
 const IoC = require('./DI')()
 
-const loggerService = require('../components/logger/logger.service')
-const sentryService = require('../components/sentry/sentry.service')
+const { loggerService } = require('../components/logger')
+const { sentryService } = require('../components/sentry')
 
-const sessionService = require('../components/session/session.service')
+const { sessionService } = require('../components/session')
+const { userService } = require('../components/user')
 
-const userService = require('../components/user/user.service')
-
-const database = require('../components/database/database.service')
+const { databaseService } = require('../components/database')
 
 const bot = require('../bot')
 
@@ -27,7 +26,7 @@ IoC.register('sentryUrl', SENTRY_URL)
 IoC.factory('sentryService', sentryService)
 
 IoC.register('mongoUri', MONGO_URI)
-IoC.factory('database', database)
+IoC.factory('databaseService', databaseService)
 
 IoC.factory('userService', userService)
 
@@ -44,11 +43,11 @@ async function stopApplication (code = 0) {
   logger.main.info('Stopping application...')
   const bot = await IoC.get('bot')
 
-  const database = IoC.get('database')
+  const databaseService = IoC.get('databaseService')
   await Promise.allSettled([
     sentry.close(2000).then(() => logger.main.info('Sentry stopped...')),
     bot.stop().then(() => logger.main.info('Bot stopped...')),
-    database.close()
+    databaseService.close()
   ])
   logger.main.info('Application stopped')
   process.exit(code)
