@@ -16,6 +16,8 @@ const userService = require('../components/user/user.service')
 
 const database = require('./database')
 
+const bot = require('../bot')
+
 IoC.register('config', config)
 
 IoC.register('loggerLevelMain', LOGGER_LEVEL_MAIN ?? 'info')
@@ -31,7 +33,7 @@ IoC.factory('userService', userService)
 
 IoC.factory('sessionService', sessionService)
 
-IoC.factory('bot', require('../bot'))
+IoC.factory('bot', bot)
 
 IoC.get('bot')
 

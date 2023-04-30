@@ -6,6 +6,6 @@
  */
 
 module.exports = async (ctx, next) => {
-  ctx.state.user = await ctx.service.User.authorize(ctx.from)
+  ctx.state.user = await ctx.service.user.authorize(ctx.from)
   return next()
 }

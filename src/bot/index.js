@@ -1,7 +1,7 @@
 const { Telegraf, Composer } = require('telegraf')
 const middlewares = require('./handlers/middlewares')
 const commands = require('./handlers/commands')
-const unmatched = require('./handlers/unmatched')
+const unmatchedHandler = require('./handlers/unmatched')
 
 module.exports = async (config, loggerService, userService, sentryService, sessionService) => {
   const { token, username } = config.botInfo
@@ -15,7 +15,7 @@ module.exports = async (config, loggerService, userService, sentryService, sessi
   bot.use(
     middlewares,
     commands,
-    Composer.mount('message', Composer.privateChat(unmatched))
+    unmatchedHandler
   )
 
   await bot.telegram.deleteWebhook({ drop_pending_updates: !!config.BOT_DROP_PENDING_UPDATES })

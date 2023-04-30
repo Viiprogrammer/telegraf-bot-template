@@ -1,12 +1,11 @@
 const { Composer } = require('telegraf')
-const { isForwarded } = require('../../../utils')
-const adminComposer = new Composer()
 const cp = require('../commands/admin/cp')
 
-adminComposer.command('/checkAdmin', ctx => ctx.reply('ADMIN!'))
-adminComposer.command('/cp', cp)
+const adminPanel = new Composer()
 
-module.exports = Composer.acl(ctx => {
-  // Checking message forward & user role
-  return !isForwarded(ctx) && ctx.state.user.role === 'ADMIN'
-}, adminComposer)
+adminPanel.command('/checkAdmin', ctx => ctx.reply('ADMIN!'))
+adminPanel.command('/cp', cp)
+
+module.exports = Composer.privateChat(
+  Composer.acl(ctx => ctx.state.user.role === 'ADMIN', adminPanel)
+)

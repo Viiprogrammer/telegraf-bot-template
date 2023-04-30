@@ -8,7 +8,7 @@ const session = (sessionName = 'session') => {
    * @returns {Promise}
    */
   return async (ctx, next) => {
-    const sessionService = ctx.service.Session
+    const sessionService = ctx.service.session
     const key = sessionService.getSessionKey(ctx)
     if (!sessionLocks.has(key)) sessionLocks.set(key, new Mutex())
 

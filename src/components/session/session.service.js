@@ -35,5 +35,5 @@ module.exports = (database) => {
     }
   }
 
-  return new SessionService(database.models.session)
+  return new SessionService(database.model.session)
 }
