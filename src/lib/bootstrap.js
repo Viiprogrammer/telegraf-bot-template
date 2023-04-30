@@ -11,9 +11,7 @@ const LoggerService = require('../components/logger/logger.service')
 const SentryService = require('../components/sentry/sentry.service')
 
 const SessionService = require('../components/session/session.service')
-const SessionRepository = require('../components/session/session.repository')
 
-const UserRepository = require('../components/user/user.repository')
 const UserService = require('../components/user/user.service')
 
 const Database = require('./database')
@@ -29,10 +27,8 @@ IoC.factory('SentryService', SentryService)
 IoC.register('mongoUri', MONGO_URI)
 IoC.factory('Database', Database)
 
-IoC.factory('UserRepository', UserRepository)
 IoC.factory('UserService', UserService)
 
-IoC.factory('SessionRepository', SessionRepository)
 IoC.factory('SessionService', SessionService)
 
 IoC.factory('bot', require('../bot'))

@@ -1,9 +1,9 @@
 const { User: { AuthorizationError } } = require('../../errors')
 
-module.exports = (UserRepository) => {
+module.exports = (UserModel) => {
   class UserService {
-    constructor (repository) {
-      this.repository = repository
+    constructor (model) {
+      this.model = model
     }
 
     /**
@@ -21,7 +21,7 @@ module.exports = (UserRepository) => {
         throw new AuthorizationError(`Missing fields for user ${id}`, id)
       }
 
-      return this.repository.findOneAndUpdate({
+      return this.model.findOneAndUpdate({
         userId: id
       }, {
         // eslint-disable-next-line camelcase
@@ -35,5 +35,5 @@ module.exports = (UserRepository) => {
       })
     }
   }
-  return new UserService(UserRepository)
+  return new UserService(UserModel)
 }

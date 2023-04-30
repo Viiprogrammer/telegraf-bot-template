@@ -1,14 +1,14 @@
 // eslint-disable-next-line no-unused-vars
 const TelegrafContext = require('telegraf/context')
 
-module.exports = (SessionRepository) => {
+module.exports = (SessionModel) => {
   class SessionService {
-    constructor (repository) {
-      this.repository = repository
+    constructor (model) {
+      this.model = model
     }
 
     saveSession (key, data) {
-      return this.repository.updateOne({ key }, { $set: { data } }, { upsert: true })
+      return this.model.updateOne({ key }, { $set: { data } }, { upsert: true })
     }
 
     /**
@@ -17,7 +17,7 @@ module.exports = (SessionRepository) => {
      * @returns {Object}
      */
     async getSession (key) {
-      const session = await this.repository.findOne({ key })
+      const session = await this.model.findOne({ key })
       return session?.data ?? {}
     }
 
@@ -38,5 +38,5 @@ module.exports = (SessionRepository) => {
     }
   }
 
-  return new SessionService(SessionRepository)
+  return new SessionService(SessionModel)
 }
